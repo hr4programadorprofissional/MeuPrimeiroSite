@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using MeuPrimeiroSite.ViewModels;
+using System.Web.Mvc;
 
 namespace MeuPrimeiroSite.Controllers
 {
@@ -9,15 +10,15 @@ namespace MeuPrimeiroSite.Controllers
             return View();
         }
 
-        public ActionResult ObterMaioridade(string nome, string idade)
+        public ActionResult ObterMaioridade(UsuarioViewModel usuarioViewModel)
         {
-            if (int.Parse(idade) < 18)
+            if (usuarioViewModel.Idade < 18)
             {
-                ViewBag.Mensagem = "Usuario: " + nome + " É menor de idade";
+                ViewBag.Mensagem = "Usuario: " + usuarioViewModel.Nome + " É menor de idade";
             }
             else
             {
-                ViewBag.Mensagem = "Usuario: " + nome + " É maior de idade";
+                ViewBag.Mensagem = "Usuario: " + usuarioViewModel.Nome + " É maior de idade";
             }
 
             return View("Index");

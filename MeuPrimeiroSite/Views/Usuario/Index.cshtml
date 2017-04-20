@@ -1,14 +1,23 @@
-﻿@{
+﻿@model MeuPrimeiroSite.ViewModels.UsuarioViewModel
+@{
 
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
 
-<form action="@Url.Action("ObterMaioridade", "Usuario")" method="post">
-    <input type="text" name="nome" />
-    <input type="text" name="idade" />
+@*<form action="@Url.Action("ObterMaioridade", "Usuario")" method="post">
+        <input type="text" name="nome" />
+        <input type="text" name="idade" />
+        <input type="submit" value="Enviar" />
+        <br />
+        @ViewBag.Mensagem
+    </form>*@
+
+@using (Html.BeginForm("ObterMaioridade", "Usuario"))
+{
+    @Html.EditorFor(model => model.Nome)
+    @Html.EditorFor(model => model.Idade)
     <input type="submit" value="Enviar" />
-    <br />
-@ViewBag.Mensagem
-</form>
+    @ViewBag.Mensagem
+}

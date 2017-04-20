@@ -1,0 +1,14 @@
+﻿@{
+
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<form action="@Url.Action("ObterMaioridade", "Usuario")" method="post">
+    <input type="text" name="nome" />
+    <input type="text" name="idade" />
+    <input type="submit" value="Enviar" />
+    <br />
+@ViewBag.Mensagem
+</form>
